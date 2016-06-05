@@ -1,0 +1,15 @@
+//global variables
+@import "./partials/variables";
+
+//vendor
+@import "../../bower_components/Materialize/sass/materialize";
+@import "./partials/animations"; //animatecss
+
+//app
+@import "./partials/utils"; //helper classes
+@import "./partials/layouts"; //main 
+/*@import "../app/auth/login";*/
+
+body {
+ background: #3B415F;
+}

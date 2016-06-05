@@ -1,0 +1,31 @@
+.hand {
+    cursor: pointer;
+}
+
+.fill-img {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden
+    img {
+        flex-shrink:0;
+        min-width:100%;
+        min-height:100%;
+    }
+}
+
+.margin-top-s {
+    margin-top: 5px;
+}
+
+.margin-top-m {
+    margin-top: 10px;
+}
+
+.margin-top-l {
+    margin-top: 15px;
+}
+
+.margin-top-xl {
+    margin-top: 20px;
+}

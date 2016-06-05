@@ -1,0 +1,89 @@
+.News-container {
+    margin-top: 50px;
+    background: gray;
+    border-radius: 10px 10px 0 0;
+
+    .News-container-header {
+        background: #ff6e40;
+        border-radius: 10px 10px 0 0;
+        .brand-logo {
+            i { font-size: 2em; }
+        }
+        span.selected-title {
+            padding-left: 70px;
+            padding-right: 15px;
+        }
+    }
+    .News-container-body {
+        margin: 0;
+        background: #C7C7C7;
+        min-height: 600px;
+        .col {
+            .card-panel { padding: 10px; }
+            .News-card-summary {
+                .row { 
+                    margin: 0; 
+                    font-size: 18px;
+                    img { max-width: 65%; }
+                }
+            }
+            .News-card-full {
+                padding: 0;
+                .row { margin: 0; padding: 0; }
+                .News-card-full-image {
+                    margin: 0; 
+                    padding: 0;
+                    text-align: center;
+                    img { 
+                        max-width: 100%;
+                        object-fit:cover;
+                    }
+                }
+                .News-card-full-content {
+                    padding: 20px;
+                }
+            }
+        }    
+    }
+}
+
+@media only screen and (max-width: 992px){
+    nav .brand-logo {
+        left: 0;
+        transform: none;
+    }
+}
+
+/*
+ * ngRepeat triggers three animation events: enter, leave and move.
+ */
+.list-animation.ng-enter {
+	/* standard transition code */
+	transition: 0.5s all linear;
+	opacity: 0;
+}
+
+.list-animation.ng-enter-stagger {
+	/* this will have a 100ms delay between each successive leave animation */
+	transition-delay: 0.3s;
+
+	/* in case the stagger doesn's work then the duration value
+	 must be set to 0 to avoid an accidental CSS inheritance */
+	transition-duration: 0s;
+}
+
+.list-animation.ng-enter.ng-enter-active {
+	/* standard transition styles */
+    opacity: 1;
+}
+
+.selected-title.ng-leave {
+    -webkit-animation-name: bounceOutLeft;
+    animation-name: bounceOutLeft;
+}
+
+.News-card-full.ng-leave {
+    -webkit-animation-name: bounceOutUp;
+    animation-name: bounceOutUp;
+}
+
