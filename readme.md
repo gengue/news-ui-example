@@ -18,7 +18,7 @@ $ bower install
 $ gulp
 $ gulp serve
 ```
-Now browse to http://localhost:3000/
+Now browse to [http://localhost:3000/](http://localhost:3000/)
 
 ### Development
 The source is `/src` forder. 
