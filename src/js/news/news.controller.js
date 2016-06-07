@@ -3,19 +3,20 @@ angular.module('app.news')
 .controller('NewsCtrl', ['$scope', 'NewsService', function($scope, NewsService) {
   $scope.feed = [];
   $scope.selectedNews = {};
+  $scope.busy = false;
 
   /*
    *fetch all news from server
    */
   $scope.loadNews = function() {
+    $scope.busy = true;
     NewsService.getAll(function(response) {
       console.log(response);
       $scope.feed = response.data.map((item)=> {
         item.selected = false;
         return item;
       }); 
-    }, function(errorResponse) { //on error
-      console.info(errorResponse);
+      $scope.busy = false;
     });
   };
 
