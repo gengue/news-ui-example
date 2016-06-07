@@ -1,11 +1,11 @@
-<div class="container News-container animated bounce">
+<div class="container News-container chu-animation">
   <nav class="News-container-header">
     <div class="nav-wrapper">
       <div class="row">
         <div class="col s12 m10 offset-m1">
           <a href="javascript:;" ng-click="loadNews()" class="brand-logo">
             <i class="large material-icons">menu</i></a>
-          <span class="selected-title animated bounceInDown truncate" ng-if="selectedNews.title">
+          <span class="selected-title truncate" ng-if="selectedNews.title">
             {{ selectedNews.title }}
           </span>
         </div>
@@ -14,35 +14,38 @@
   </nav>
 
   <div class="row News-container-body">
-    <div class="col s12 m10 offset-m1 list-animation" 
-      ng-class="{'margin-top-xl': $index==0}" ng-repeat="new in news">
-      <div class="card-panel grey lighten-5 News-card-summary hand" ng-click="openNews(new)">
+    <div class="col s12 m10 offset-m1 margin-top-xl">
+      <div class="card-panel grey lighten-5 News-card-summary hand" 
+           ng-click="openNews(news)" ng-repeat-start="news in feed">
         <div class="row valign-wrapper">
           <div class="col s2">
-            <img ng-src="{{new.image}}" alt="image" class="circle responsive-img">
+            <img ng-src="{{news.image}}" alt="image" class="circle responsive-img">
           </div>
           <div class="col s10">
             <span class="blue-grey-text text-darken-3 truncate">
-              {{ new.title }}
+              {{ news.title }}
             </span>
           </div>
         </div>
       </div>
-      <div class="card-panel grey lighten-5 News-card-full animated bounceInDown" ng-if="new.selected">
-        <div class="row">
-          <div class="col m4 s12 News-card-full-image fill-img">
-            <img ng-src="{{new.image}}" alt="image" height="100%">
-          </div>
-          <div class="col m8 s12 News-card-full-content">
-            <span class="blue-grey-text text-darken-3 flow-text">
-              {{ new.title }}
-            </span>
-            <p class="blue-grey-text text-darken-4">
-              {{ new.content }}
-            </p>
+      <div ng-repeat-end ng-if="news.selected" class="more-info">
+        <div class="card-panel grey lighten-5 News-card-full">
+          <div class="row">
+            <div class="col m4 s12 News-card-full-image fill-img">
+              <img ng-src="{{news.image}}" alt="image" height="100%">
+            </div>
+            <div class="col m8 s12 News-card-full-content">
+              <span class="blue-grey-text text-darken-3 flow-text">
+                {{ news.title }}
+              </span>
+              <p class="blue-grey-text text-darken-4">
+              {{ news.content }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>

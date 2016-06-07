@@ -2,7 +2,7 @@
     margin-top: 50px;
     background: gray;
     border-radius: 10px 10px 0 0;
-
+    animation: jump .8s ease;
     .News-container-header {
         background: #ff6e40;
         border-radius: 10px 10px 0 0;
@@ -17,17 +17,21 @@
     .News-container-body {
         margin: 0;
         background: #C7C7C7;
-        min-height: 600px;
+        min-height: 800px;
         .col {
             .card-panel { padding: 10px; }
             .News-card-summary {
                 .row { 
                     margin: 0; 
                     font-size: 18px;
-                    img { max-width: 65%; }
+                    img { 
+                        max-width: 65%; 
+                        min-height: 25px;
+                    }
                 }
             }
             .News-card-full {
+                animation: flipInX .5s ease-out;
                 padding: 0;
                 .row { margin: 0; padding: 0; }
                 .News-card-full-image {
@@ -57,33 +61,31 @@
 /*
  * ngRepeat triggers three animation events: enter, leave and move.
  */
-.list-animation.ng-enter {
-	/* standard transition code */
-	transition: 0.5s all linear;
-	opacity: 0;
+.News-card-summary.ng-enter {
+    animation: growRight .3s ease;
 }
-
-.list-animation.ng-enter-stagger {
+.News-card-summary.ng-enter-stagger {
 	/* this will have a 100ms delay between each successive leave animation */
-	transition-delay: 0.3s;
+    animation-delay: 0.1s;
 
 	/* in case the stagger doesn's work then the duration value
 	 must be set to 0 to avoid an accidental CSS inheritance */
-	transition-duration: 0s;
+    animation-duration: 0s;
 }
 
-.list-animation.ng-enter.ng-enter-active {
-	/* standard transition styles */
-    opacity: 1;
+.selected-title.ng-enter {
+    /*-webkit-animation-name: bounceOutLeft;*/
+    /*animation-name: bounceOutLeft;*/
+    animation: fall .2s ease;
+}
+.selected-title.ng-leave{
+    /*-webkit-animation-name: bounceOutLeft;*/
+    /*animation-name: bounceOutLeft;*/
+    animation: shrinkLeft .2s ease;
 }
 
-.selected-title.ng-leave {
-    -webkit-animation-name: bounceOutLeft;
-    animation-name: bounceOutLeft;
-}
-
-.News-card-full.ng-leave {
-    -webkit-animation-name: bounceOutUp;
-    animation-name: bounceOutUp;
+.more-info.ng-leave {
+    /*animation: bounceOut .4s ease-out;*/
+    animation: flipOutX .4s ease-out;
 }
 

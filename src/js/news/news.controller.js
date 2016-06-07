@@ -1,21 +1,27 @@
 angular.module('app.news')
 
 .controller('NewsCtrl', ['$scope', 'NewsService', function($scope, NewsService) {
-  $scope.news = [];
+  $scope.feed = [];
   $scope.selectedNews = {};
 
+  /*
+   *fetch all news from server
+   */
   $scope.loadNews = function() {
     NewsService.getAll(function(response) {
       console.log(response);
-      $scope.news = response.data.map((item)=> {
+      $scope.feed = response.data.map((item)=> {
         item.selected = false;
         return item;
       }); 
-    }, function(errorResponse) {
+    }, function(errorResponse) { //on error
       console.info(errorResponse);
     });
   };
 
+  /*
+   *show more info
+   */
   $scope.openNews = function(news){
     news.selected = !news.selected; 
     if(news.selected){
